@@ -1,39 +1,39 @@
 {
-  "name": "Priyanshi's Api",
+  "name": "Mr-Perfect API",
   "version": "v1.0",
-  "description": "REST APIs By Priyanshi Kaur",
+  "description": "A collection of REST APIs provided by Mr-Perfect for seamless integration into your projects.",
   "header": {
-    "status": "Online!",
+    "status": "Online",
     "imageSrc": [
-      "https://media4.giphy.com/media/l0Iy33dWjmywkCnNS/giphy.gif?cid=6c09b952p3mt40j1mgznfi9rwwtccbjl7mtc2kvfugymeinr&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"
+      "https://media0.giphy.com/media/J6UJjUEg1ReqjMIAlQ/giphy.gif?cid=6c09b9525emf0u5a10vrqxkk8e60w1jiz0ovh6i4b6f1qecg&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"
     ],
     "imageSize": {
       "mobile": "80%",
-      "tablet": "40%",
+      "tablet": "50%",
       "desktop": "40%"
     }
   },
   "apiSettings": {
-    "creator": "𝙿𝚛𝚒𝚢𝚊𝚗𝚜𝚑𝚒 𝙺𝚊𝚞𝚛"
+    "creator": "Mr-Perfect"
   },
   "links": [
     {
-      "name": "Source Code",
-      "url": "https://github.com/ajirodesu/wataru-api"
+      "name": "View Source Code",
+      "url": "https://github.com/Godperfect/Mr-perfect_api"
     },
     {
       "name": "Contact Me",
-      "url": "https://t.me/priyanshikaurji"
+      "url": "https://wa.me/9779863479066"
     }
   ],
   "notifications": [
     {
-      "title": "Welcome to API Dashboard",
-      "message": "Explore our APIs and integrate them into your projects."
+      "title": "Welcome to the Mr-Perfect API Dashboard",
+      "message": "Explore our powerful APIs and start integrating them into your projects effortlessly."
     },
     {
-      "title": "Coming Soon",
-      "message": "New APIs Will Be Added In Future Wait For It!"
+      "title": "New APIs Coming Soon!",
+      "message": "Stay tuned for new API features that will be added shortly!"
     }
   ]
 }

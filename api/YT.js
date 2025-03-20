@@ -57,7 +57,7 @@ async function onStart({ res, req }) {
             data: videoData,
             url: url,
             timestamp: new Date().toISOString(),
-            powered_by: "Priyanshi's API"
+            powered_by: "Mr-Perfect Api"
         });
     } catch (error) {
         console.error("Error Fetching Data:", error.message);

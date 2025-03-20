@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -302,6 +303,106 @@
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
+    /* Your existing CSS styles here */
+/* Popup card styles */
+.card {
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+  transform: scale(0);
+  animation: popup-appear 0.4s ease forwards;
+}
+
+.card__content {
+  background: rgb(5, 6, 45);
+  border-radius: 17px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+@keyframes popup-appear {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Proper checkmark animation */
+.checkmark-circle {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 16px;
+}
+
+.checkmark-circle-bg {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(76, 175, 80, 0.2);
+  animation: circle-appear 0.3s ease-out forwards;
+}
+
+@keyframes circle-appear {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* SVG checkmark approach */
+.checkmark {
+  stroke-width: 4;
+  stroke: #4caf50;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke-animation 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+@keyframes stroke-animation {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Button styles */
+#close-popup {
+  margin-top: 24px;
+  background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+  border: none;
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+#close-popup:hover {
+  opacity: 0.9;
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-dark-950 via-dark-900 to-dark-850 text-gray-200 font-sans min-h-screen relative transition-colors duration-300">
@@ -391,7 +492,7 @@
           Why Choose Our API?
         </h2>
         <p class="text-center text-gray-300 mb-12 max-w-2xl mx-auto opacity-0 reveal" style="transition-delay: 0.2s;">
-          Our REST API is designed with developers in mind, offering a seamless experience from integration to production.
+          Our REST API is designed for developers who want a seamless journey—simple integration, smooth scaling, and reliable performance all the way to production.
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -401,10 +502,10 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
             </div>
-            <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-accent-blue">No Authentication</h3>
-            <p class="text-gray-300 leading-relaxed">
-              Access our APIs instantly without the need for API keys or complex authentication processes. Perfect for rapid prototyping and development.
-            </p>
+          <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-accent-blue">No Authentication</h3>
+          <p class="text-gray-300 leading-relaxed">
+            Access our APIs instantly, without needing any authentication or API keys. Perfect for quick development and testing.
+          </p>
           </div>
 
           <div class="bg-dark-800 p-8 rounded-lg border border-dark-700 card-hover opacity-0 reveal" style="transition-delay: 0.4s;">
@@ -512,39 +613,59 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 sm:py-32 bg-dark-800 border-t border-dark-700">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center gradient-text opacity-0 reveal">
-          Get in Touch
-        </h2>
-        <p class="text-center text-gray-300 mb-12 max-w-2xl mx-auto opacity-0 reveal" style="transition-delay: 0.2s;">
-          Have questions or need support? We're here to help you get the most out of our API.
-        </p>
-
-        <div class="max-w-2xl mx-auto">
-          <div class="bg-dark-700 p-8 rounded-lg border border-dark-600 opacity-0 reveal" style="transition-delay: 0.3s;">
-            <h3 class="text-xl font-semibold mb-6 text-white">Contact Form</h3>
-            <form id="contact-form" class="space-y-4">
-              <div>
-                <label for="name" class="block text-gray-300 mb-2">Name</label>
-                <input type="text" id="name" name="name" class="w-full bg-dark-800 border border-dark-600 rounded-md py-2 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition duration-300" required>
-              </div>
-              <div>
-                <label for="email" class="block text-gray-300 mb-2">Email</label>
-                <input type="email" id="email" name="email" class="w-full bg-dark-800 border border-dark-600 rounded-md py-2 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition duration-300" required>
-              </div>
-              <div>
-                <label for="message" class="block text-gray-300 mb-2">Message</label>
-                <textarea id="message" name="message" rows="6" class="w-full bg-dark-800 border border-dark-600 rounded-md py-2 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition duration-300" required></textarea>
-              </div>
-              <button type="submit" class="gradient-button text-white font-semibold py-3 px-6 rounded-md transition duration-300 ease-in-out hover:opacity-90 w-full">
-                Send Message
-              </button>
-            </form>
+   <section id="contact" class="py-20 sm:py-32 bg-dark-800 border-t border-dark-700">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center gradient-text opacity-0 reveal">
+      Get in Touch
+    </h2>
+    <p class="text-center text-gray-300 mb-12 max-w-2xl mx-auto opacity-0 reveal" style="transition-delay: 0.2s;">
+      Have questions or need support? We're here to help you get the most out of our API.
+    </p>
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-dark-700 p-8 rounded-lg border border-dark-600 opacity-0 reveal" style="transition-delay: 0.3s;">
+        <h3 class="text-xl font-semibold mb-6 text-white">Contact Form</h3>
+        <form id="contact-form" class="space-y-4" action="https://formspree.io/f/xqapelrg" method="POST">
+          <div>
+            <label for="name" class="block text-gray-300 mb-2">Name</label>
+            <input type="text" id="name" name="name" class="w-full bg-dark-800 border border-dark-600 rounded-md py-2 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition duration-300" required>
           </div>
-        </div>
+          <div>
+            <label for="email" class="block text-gray-300 mb-2">Email</label>
+            <input type="email" id="email" name="email" class="w-full bg-dark-800 border border-dark-600 rounded-md py-2 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition duration-300" required>
+          </div>
+          <div>
+            <label for="message" class="block text-gray-300 mb-2">Message</label>
+            <textarea id="message" name="message" rows="6" class="w-full bg-dark-800 border border-dark-600 rounded-md py-2 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition duration-300" required></textarea>
+          </div>
+          <button type="submit" class="gradient-button text-white font-semibold py-3 px-6 rounded-md transition duration-300 ease-in-out hover:opacity-90 w-full">
+            Send Message
+          </button>
+        </form>
       </div>
-    </section>
+    </div>
+  </div>
+  
+  <!-- Popup for success message -->
+     <!-- Popup for success message -->
+     <div id="success-popup" class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 hidden">
+       <div class="card">
+         <div class="card__content">
+           <div class="checkmark-circle">
+             <div class="checkmark-circle-bg"></div>
+             <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+               <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+               <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+             </svg>
+           </div>
+           <h3 class="text-white text-xl font-semibold mt-4">Thank You!</h3>
+           <p class="text-gray-300 text-center mt-2">Your message has been sent successfully.</p>
+           <button id="close-popup" class="gradient-button text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out hover:opacity-90 mt-4">
+             Close
+           </button>
+         </div>
+       </div>
+     </div>
+   </section> 
   </main>
 
   <!-- Footer -->
@@ -595,7 +716,7 @@
         </div>
         <div>
           <a href="https://facebook.com/lance.cochangco" target="_blank" rel="noopener noreferrer" class="gradient-text hover:opacity-90 transition duration-300">
-            Developed by AjiroDesu
+            Developed by Mr perfect
           </a>
         </div>
       </div>
@@ -739,31 +860,73 @@
           behavior: 'smooth'
         });
       });
+// Contact form with Formspree integration
+const contactForm = document.getElementById('contact-form');
+const successPopup = document.getElementById('success-popup');
+const closePopupBtn = document.getElementById('close-popup');
 
-      // Contact form
-      const contactForm = document.getElementById('contact-form');
+// Close popup when clicking the close button
+if (closePopupBtn) {
+  closePopupBtn.addEventListener('click', () => {
+    successPopup.classList.add('hidden');
+  });
+}
 
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+// Close popup when clicking outside
+if (successPopup) {
+  successPopup.addEventListener('click', (e) => {
+    if (e.target === successPopup) {
+      successPopup.classList.add('hidden');
+    }
+  });
+}
 
-        const formData = new FormData(contactForm);
-        const formValues = Object.fromEntries(formData.entries());
-
-        // Simulate form submission
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-
-        submitButton.disabled = true;
-        submitButton.textContent = 'Sending...';
-
-        setTimeout(() => {
-          alert('Thank you for your message! We will get back to you soon.');
-          contactForm.reset();
-          submitButton.disabled = false;
-          submitButton.textContent = originalText;
-        }, 1500);
-      });
+// Handle form submission
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(contactForm);
+    const formValues = Object.fromEntries(formData.entries());
+    
+    // Get submit button
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    
+    // Disable button and show loading state
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+    
+    // Send data to Formspree
+    fetch(contactForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        // Show success popup
+        successPopup.classList.remove('hidden');
+        contactForm.reset();
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('There was an error sending your message. Please try again later.');
+    })
+    .finally(() => {
+      // Re-enable button and restore original text
+      submitButton.disabled = false;
+      submitButton.textContent = originalText;
     });
+  });
+}
+       });
   </script>
 </body>
 </html>
